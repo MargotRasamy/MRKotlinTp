@@ -2,22 +2,19 @@
 <html>
     <head>
         <title>Fun algorithms</title>
+        <link rel="stylesheet" type="text/css" href="/static/styles/style.css">
     </head>
     <body>
-        <div class="algoChoice">Select Minimum/Maximum</div>
+        <header>
+            <h1>Fun algorithms !</h1>
+            <h3>Choose an algorithms among the ones below</h3>
+        </header>
 
-        <form action="/send" method="post">
-            <label for="numbersInput">List of numbers</label>
-            <input name="numbersInput" type="text" placeholder="Ex: 1,4,3"></input>
-            <input type="submit" value="Find the maximum"></input>
-        </form>
 
-        <div class="algoChoice">Two Sum</div>
-        <form action="/sending" method="post">
-                    <label for="numbersInput">List of numbers</label>
-                    <input name="numbersInput" type="text" placeholder="Ex: 1,4,3"></input>
-                    <input type="submit" value="Find the pair"></input>
-        </form>
+         <a href="/algo/${algoName.twosum}" class="algorithmsChoice"> Two Sum </a>
+         <a href="/algo/${algoName.maximum}" class="algorithmsChoice"> Select Maximum </a>
+         <a href="/algo/${algoName.minimum}" class="algorithmsChoice"> Select Minimum </a>
+
 
 
     </body>

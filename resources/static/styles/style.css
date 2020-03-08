@@ -1,0 +1,78 @@
+body {
+    background-color: #1F1F1F;
+    color: white;
+    display: flex;
+    margin: 0;
+    font-family: "Text-Regular";
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+footer{
+    padding: 15px;
+
+}
+H1,H2,H3,H4,H5 {
+    font-family: "Titles-Bold";
+    text-align: center;
+}
+
+/* Fonts */
+
+/* Titles fonts */
+@font-face {
+    font-family: "Titles-Bold";
+    src: url("/static/fonts/Merienda/Merienda-Bold.ttf");
+}
+
+
+/* Text fonts */
+@font-face {
+    font-family: "Text-Bold";
+    src: url("/static/fonts/Montserrat/Montserrat-Bold.ttf");
+}
+@font-face {
+    font-family: "Text-Regular";
+    src: url("/static/fonts/Montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+    font-family: "Text-Light";
+    src: url("/static/fonts/Montserrat/Montserrat-Light.ttf");
+}
+
+.algorithmsChoice {
+    box-shadow: 3px 3px 3px rgb(24, 24, 24);
+    width: calc(100vw / 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background:  linear-gradient(#e66465, #9198e5);
+    border-radius: 15px;
+    margin: 1vw;
+    cursor: pointer;
+    text-align:center;
+    text-decoration:none;
+    color: white;
+}
+
+.back-link{
+    color: rgb(26, 26, 26);
+    font-family: "Titles-Bold";
+    padding: 8px;
+    border-radius: 10px;
+    background: linear-gradient(#f1f1f1, #e9e2e2);
+    text-decoration: none;
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+}

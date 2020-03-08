@@ -57,7 +57,6 @@ fun twoSum(nums: MutableList<Int>, target: Int) : Pair<Int?, Int?> {
 }
 
 
-
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 
@@ -76,46 +75,55 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 
+    //Algorithms list
+    data class algoNames(val twosum: String, val maximum: String, val minimum: String)
+    val algoName = algoNames("twosum", "maximum", "minimum")
 
-
-//ma page
     routing {
         get("/") {
-
-            call.respond(FreeMarkerContent("index.ftl", mapOf("" to "")))
-
-                }
-
-
-
-
-        post("/send"){
-            val sendParams = call.receiveParameters()
-
-            var myNumbersDatas = sendParams["numbersInput"] ?: ""
-            var myNumbersArray = myNumbersDatas.split(",").toTypedArray()
-            print(maximum(myNumbersArray))
-            call.respondRedirect("/")
-
-
+            call.respond(FreeMarkerContent("index.ftl", mapOf("algoName" to algoName)))
         }
 
-        post("/sending"){
+        get("/algo/twosum") {
+            call.respond(FreeMarkerContent("twosum.ftl", mapOf("algoName" to "twosum")))
+        }
+        get("/algo/maximum") {
+            call.respond(FreeMarkerContent("algo.ftl", mapOf("algoName" to "maximum")))
+        }
+        get("/algo/minimum") {
+            call.respond(FreeMarkerContent("algo.ftl", mapOf("algoName" to "minimum")))
+        }
+
+//Post method for each algorithms
+        post("/maximum"){
+            val sendParams = call.receiveParameters()
+            var myNumbersDatas = sendParams["numbersInput"] ?: ""
+            var myNumbersArray = myNumbersDatas.split(",").toTypedArray()
+            var answer = maximum(myNumbersArray)
+            call.respond(FreeMarkerContent("answer.ftl", mapOf("answer" to answer)))
+        }
+
+        post("/minimum"){
+            val sendParams = call.receiveParameters()
+            var myNumbersDatas = sendParams["numbersInput"] ?: ""
+            var myNumbersArray = myNumbersDatas.split(",").toTypedArray()
+            var answer = minimum(myNumbersArray)
+            call.respond(FreeMarkerContent("answer.ftl", mapOf("answer" to answer)))
+        }
+
+        post("/twosum"){
             val sendParams = call.receiveParameters()
 
             var myNumbersDatas = sendParams["numbersInput"] ?: ""
             var myNumbersArray = myNumbersDatas.split(",")
             var userNumbersList : MutableList<Int> = mutableListOf()
             for ((n, elem) in myNumbersArray.withIndex()) {
-
                 userNumbersList.add(elem.trim().toInt())
             }
-            print(twoSum(userNumbersList, 10))
-
-
-            call.respondRedirect("/")
-
-
+            var mySumInteger = sendParams["sumInput"] ?: ""
+            var mySum = mySumInteger.trim().toInt()
+            var answer = twoSum(userNumbersList, mySum)
+            call.respond(FreeMarkerContent("answer.ftl", mapOf("answer" to answer)))
         }
 
 

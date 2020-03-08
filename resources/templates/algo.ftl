@@ -18,7 +18,7 @@
             <input type="submit" value="Submit"></input>
         </form>
 
-
+        <a class="back-link" href="/">Back to the algorithms list</a>
 
 
     </body>

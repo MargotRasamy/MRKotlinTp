@@ -7,7 +7,7 @@
     <body>
         <header>
             <h1>Select !</h1>
-            <h3>Enter a list of integers separated by comas and submit !</h3>
+            <h3>Enter a list of integers separated by comas and your sum !</h3>
         </header>
 
 
